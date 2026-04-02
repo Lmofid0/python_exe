@@ -56,3 +56,48 @@ def recursive_divide(dividend, divisor):
     # Recursive case: 1 + division of remainder
     return 1 + recursive_divide(dividend - divisor, divisor)
 print(recursive_divide(15, 4))  # Output: 3
+
+
+# O(1)-constant time
+def dict_lookup(d, key):
+    return d.get(key, None)
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+print(dict_lookup(my_dict, 'b')) # Output: 2
+
+def get_first_element(arr):
+    if len(arr) == 0:
+        return None
+    return arr[0]
+print(get_first_element([10, 20, 30]))  # Output: 10
+
+def if_even(n):
+    if n%2 == 0:
+        return 'even'
+    else:
+        return 'odd'
+print(if_even(4))  # Output: 'even'
+
+# O(log n)-logarithmic time
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+sorted_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(binary_search(sorted_arr, 5))  # Output: 4
+
+def fast_exponentiation(base, exp):
+    if exp == 0:
+        return 1
+    elif exp % 2 == 0:
+        half = fast_exponentiation(base, exp // 2)
+        return half * half
+    else:
+        return base * fast_exponentiation(base, exp - 1)
+print(fast_exponentiation(2, 10))  # Output: 1024
